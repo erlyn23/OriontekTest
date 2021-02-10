@@ -8,12 +8,10 @@ namespace OriontekTest.DataAccess.DbContexts
 {
     public class ClientsDbContext: DbContext
     {
-        private readonly DbContextOptions _options;
-
         public DbSet<Client> Clients { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
-        public ClientsDbContext(DbContextOptions options): base(options)
+        public ClientsDbContext(DbContextOptions<ClientsDbContext> options): base(options)
         {
 
         }

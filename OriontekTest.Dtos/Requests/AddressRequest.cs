@@ -19,9 +19,6 @@ namespace OriontekTest.Dtos.Requests
         [MaxLength(30, ErrorMessage = "Este campo acepta 30 carácteres máximo")]
         public string Country { get; set; }
 
-        [Required(ErrorMessage = "Este campo es requerido")]
-        [MinLength(3, ErrorMessage = "Este campo acepta 3 carácteres mínimo")]
-        [MaxLength(30, ErrorMessage = "Este campo acepta 30 carácteres máximo")]
         public string PostalCode { get; set; }
 
         [Required(ErrorMessage = "Este campo es requerido")]

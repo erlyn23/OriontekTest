@@ -30,14 +30,14 @@ namespace OriontekTest.Presentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(builder => 
+            services.AddControllers();
+            services.AddCors(builder =>
             {
-                builder.AddPolicy("MyCors", policy => 
+                builder.AddPolicy("MyCors", policy =>
                 {
-                    policy.WithOrigins("https://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
                 });
             });
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OriontekTest.Presentation", Version = "v1" });
@@ -64,9 +64,9 @@ namespace OriontekTest.Presentation
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
-
             app.UseCors("MyCors");
+
+            app.UseRouting();
 
             app.UseAuthorization();
 
